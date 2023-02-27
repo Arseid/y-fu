@@ -15,6 +15,9 @@ function App() {
                 currentLayout === 'Gacha' ? `url(${bg_gacha})`
                     : currentLayout === 'Home' ? `url(${bg_home})`
                         : `url(${bg_minigames})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             position:'absolute',
             left:0,
             top:0,
