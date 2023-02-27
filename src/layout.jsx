@@ -5,7 +5,7 @@ import Minigames from "./pages/minigames/minigames";
 
 const Layout = ({changeLayout, currentLayout}) => {
 
-    const layout = (currentLayout) => {
+    const showLayout = (currentLayout) => {
         let tempLayout;
         if (currentLayout === 'Gacha') tempLayout = (<Gacha/>)
         else if (currentLayout === 'Home') tempLayout = (<Home/>)
@@ -14,7 +14,7 @@ const Layout = ({changeLayout, currentLayout}) => {
     }
 
     return <div>
-        {layout(currentLayout)}
+        {showLayout(currentLayout)}
         <div style={{bottom: 0, position: "absolute", left:0, right: 0}}>
             <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                 <button onClick={()=>{changeLayout(0)}}>Gacha</button>
