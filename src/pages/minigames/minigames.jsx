@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Minigames = () => {
-    return <div>
-
-    </div>
+    return <>
+        <h1>Minigames</h1>
+    </>
 };
 
 export default Minigames;
