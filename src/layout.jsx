@@ -15,8 +15,8 @@ const Layout = ({changeLayout, currentLayout}) => {
 
     return <div>
         {layout(currentLayout)}
-        <div style={{bottom: 0, position: "absolute"}}>
-            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{bottom: 0, position: "absolute", left:0, right: 0}}>
+            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                 <button onClick={()=>{changeLayout(0)}}>Gacha</button>
                 <button onClick={()=>{changeLayout(1)}}>Home</button>
                 <button onClick={()=>{changeLayout(2)}}>Minigames</button>
