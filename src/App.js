@@ -1,31 +1,32 @@
-import Layout from "./layout";
 import React from "react";
-import bg_home from "./ressources/bg_home.png";
-import bg_gacha from "./ressources/bg_gacha.png";
-import bg_minigames from "./ressources/bg_minigames.png";
+import {
+    BrowserRouter, Link,
+    Route,
+    Routes
+} from "react-router-dom";
+import Home from "./pages/home/home";
+import Gacha from "./pages/gacha/gacha";
+import Minigames from "./pages/minigames/minigames";
 
 function App() {
-    const layoutList = ["Gacha","Home","Minigames"];
-    const [currentLayout, setCurrentLayout] = React.useState(layoutList[0]);
-    const changeLayout = (id) => setCurrentLayout(layoutList[id]);
 
     return (
-        <div className="App" style={{
-            backgroundImage:
-                currentLayout === 'Gacha' ? `url(${bg_gacha})`
-                    : currentLayout === 'Home' ? `url(${bg_home})`
-                        : `url(${bg_minigames})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position:'absolute',
-            left:0,
-            top:0,
-            width:'100%',
-            height:'100%'
-        }}>
-            <Layout currentLayout={currentLayout} changeLayout={changeLayout}/>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Routes>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='/minigames' element={<Minigames/>}/>
+                    <Route path='/gacha' element={<Gacha/>}/>
+                </Routes>
+                <div style={{bottom: 0, position: "absolute", left:0, right: 0}}>
+                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                        <Link to='/'>Home</Link>
+                        <Link to='/gacha'>Gacha</Link>
+                        <Link to='/minigames'>Minigames</Link>
+                    </div>
+                </div>
+            </div>
+        </BrowserRouter>
     );
 }
 
